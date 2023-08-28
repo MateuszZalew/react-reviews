@@ -1,6 +1,13 @@
 import { FaQuoteRight, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const Person = ({ name, image, job, text }) => {
+const Person = ({ name, image, job, text, goPrevious, goNext }) => {
+  const prevPerson = () => {
+    goPrevious();
+  };
+
+  const nextPerson = () => {
+    goNext();
+  };
   return (
     <section className="review">
       <div className="img-container">
@@ -13,10 +20,10 @@ const Person = ({ name, image, job, text }) => {
       <h3 className="job">{job}</h3>
       <p className="info">{text}</p>
       <div className="btn-container">
-        <button className="prev-btn">
+        <button className="prev-btn" onClick={prevPerson}>
           <FaArrowLeft />
         </button>
-        <button className="next-btn">
+        <button className="next-btn" onClick={nextPerson}>
           <FaArrowRight />
         </button>
       </div>
