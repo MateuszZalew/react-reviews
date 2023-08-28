@@ -24,11 +24,30 @@ const App = () => {
       }
     });
   };
+
+  const getRandom = () => {
+    const randomNum = Math.floor(Math.random() * reviews.length);
+    console.log(randomNum);
+    setIndex((prevState) => {
+      if (randomNum === prevState && randomNum !== reviews.length - 1) {
+        return randomNum + 1;
+      } else if (randomNum === prevState && randomNum === reviews.length - 1) {
+        return randomNum - 1;
+      } else {
+        return randomNum;
+      }
+    });
+  };
   const { name, job, image, text } = reviews[index];
   return (
     <>
       <main>
-        <Person {...reviews[index]} goPrevious={goPrevious} goNext={goNext} />
+        <Person
+          {...reviews[index]}
+          goPrevious={goPrevious}
+          goNext={goNext}
+          getRandom={getRandom}
+        />
       </main>
     </>
   );

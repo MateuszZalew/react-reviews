@@ -1,12 +1,16 @@
 import { FaQuoteRight, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const Person = ({ name, image, job, text, goPrevious, goNext }) => {
+const Person = ({ name, image, job, text, goPrevious, goNext, getRandom }) => {
   const prevPerson = () => {
     goPrevious();
   };
 
   const nextPerson = () => {
     goNext();
+  };
+
+  const getRand = () => {
+    getRandom();
   };
   return (
     <section className="review">
@@ -27,7 +31,7 @@ const Person = ({ name, image, job, text, goPrevious, goNext }) => {
           <FaArrowRight />
         </button>
       </div>
-      <button className="btn" type="button">
+      <button className="btn" type="button" onClick={getRand}>
         Surprise Me
       </button>
     </section>
