@@ -7,27 +7,20 @@ const App = () => {
 
   const goPrevious = () => {
     setIndex((prevState) => {
-      if (prevState === 0) {
-        return reviews.length - 1;
-      } else {
-        return prevState - 1;
-      }
+      const newIndex = (prevState - 1 + reviews.length) % reviews.length;
+      return newIndex;
     });
   };
 
   const goNext = () => {
     setIndex((prevState) => {
-      if (prevState === reviews.length - 1) {
-        return 0;
-      } else {
-        return prevState + 1;
-      }
+      const newIndex = (prevState + 1) % reviews.length;
+      return newIndex;
     });
   };
 
   const getRandom = () => {
     const randomNum = Math.floor(Math.random() * reviews.length);
-    console.log(randomNum);
     setIndex((prevState) => {
       if (randomNum === prevState && randomNum !== reviews.length - 1) {
         return randomNum + 1;
