@@ -38,7 +38,6 @@ const App = () => {
       }
     });
   };
-  const { name, job, image, text } = reviews[index];
   return (
     <>
       <main>
